@@ -78,7 +78,7 @@ section.show {
 .txt_wrap > h1:last-child {
   transform: translateX(20px);
 }
-}
+
 .date{
   display: flex;
   width: 100%;
