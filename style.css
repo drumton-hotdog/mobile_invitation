@@ -914,6 +914,17 @@ svg{fill:#999;width: 100%;}
   border:none;margin:50px auto;display: block;
 }
 
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.kv {
+  width: 100%;
+  overflow: hidden;
+}
+
 .gallery {
   width: 100%;
   overflow: hidden;
