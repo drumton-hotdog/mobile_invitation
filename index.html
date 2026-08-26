@@ -42,16 +42,15 @@
 
   <body>
     <div class="body_wrap">
-   <div class="kv">
-     <div class="img"></div>
-      <video
-       src="https://theirmood.com/src/wdd/particle/cherry-blossom.mp4"
-        loop
-        autoplay
-        muted
-        playsinline>
+      <div class="kv">
+        <div class="img"></div>
+         <video
+         src="https://theirmood.com/src/wdd/particle/cherry-blossom.mp4"
+          loop
+          autoplay
+          muted
+          playsinline>
   </video>
-  
         <div class="txt_wrap"> 
           <h1>Forever</h1><h1>Together</h1>
           <div class="date">
@@ -80,7 +79,7 @@
         <div class="call_wrap">
   <p>
     최남출 · 도정희 <span>의 아들</span> 최근송<br>
-    <img src="icon/icon_01.png" class="memorial-flower" alt="">
+    <img src="img/icon/icon_01.png "C:\Users\LG\Documents\GitHub\mobile_invitation\img\icon\icon_01.png"" class="memorial-flower" alt="">
     이병천 · 이용미 <span>의 딸</span> 이다솔
   </p>
 </div>
@@ -571,6 +570,19 @@
   navigator.clipboard.writeText(input.value);
   alert("복사되었습니다.");
 }
+    
+  // KV parallax
+  const img = document.querySelector(".kv .img");
+  const kv = document.querySelector(".kv");
+
+  function handleParallax() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    const kvTop = kv.offsetTop;
+    const offset = (scrollY - kvTop) * 0.3;
+    img.style.transform = `translateY(${offset}px)`;
+    requestAnimationFrame(handleParallax);
+  }
+  requestAnimationFrame(handleParallax);
 
   // gallery automove
   const banner = document.getElementById('banner');
@@ -588,20 +600,6 @@
   }
 
   animate();
-
-  // KV parallax
-  const img = document.querySelector(".kv .img");
-  const kv = document.querySelector(".kv");
-
-  function handleParallax() {
-    const scrollY = window.scrollY || window.pageYOffset;
-    const kvTop = kv.offsetTop;
-    const offset = (scrollY - kvTop) * 0.3;
-    img.style.transform = `translateY(${offset}px)`;
-    requestAnimationFrame(handleParallax);
-  }
-
-  requestAnimationFrame(handleParallax);
 
   // Tel popup (dimmed overlay)
   const callBtn = document.getElementById('call');
