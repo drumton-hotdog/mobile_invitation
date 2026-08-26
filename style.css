@@ -922,3 +922,26 @@ svg{fill:#999;width: 100%;}
   color:#544f4f; font-size: 14px;
   border:none;margin:50px auto;display: block;
 }
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.body_wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.kv {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
