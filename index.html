@@ -589,6 +589,20 @@
 
   animate();
 
+  // KV parallax
+  const img = document.querySelector(".kv .img");
+  const kv = document.querySelector(".kv");
+
+  function handleParallax() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    const kvTop = kv.offsetTop;
+    const offset = (scrollY - kvTop) * 0.3;
+    img.style.transform = `translateY(${offset}px)`;
+    requestAnimationFrame(handleParallax);
+  }
+
+  requestAnimationFrame(handleParallax);
+
   // Tel popup (dimmed overlay)
   const callBtn = document.getElementById('call');
   const dimmed = document.getElementById('dimmed');
