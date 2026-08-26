@@ -74,7 +74,6 @@ section.show {
   object-fit: cover;
   z-index: 2;
   opacity: 0.2;
-  mix-blend-mode: screen;
   pointer-events: none
 }
 .txt_wrap{
