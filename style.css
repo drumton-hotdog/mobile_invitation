@@ -168,12 +168,16 @@ section button{
   color:#544f4f; font-size: 14px;
 }
 .memorial-flower {
-  width: 8px !important;
-  height: 8px !important;
-  object-fit: contain;
-  display: inline-block;
-  vertical-align: -1px;
-  margin-right: 2px;
+  display: inline-block !important;
+  width: 10px !important;
+  height: 10px !important;
+  max-width: 10px !important;
+  max-height: 10px !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  object-fit: contain !important;
+  vertical-align: middle !important;
+  margin-right: 3px !important;
 }
 
 /* tel popup */
