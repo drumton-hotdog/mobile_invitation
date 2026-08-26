@@ -51,27 +51,27 @@ section.show {
 
 .kv{
   position: relative;
-  width: 100%; height: 80vh;
+  width: 100%; height: 100vh;
   overflow: hidden;
 }
 .kv .img {
   position: absolute;
   top: 0;  left: 0;
-  width: 101%;  height: 100%;
+  width: 100%;  height: 100%;
   background: url(img/gallery/gallery_06.jpg) center/cover no-repeat;
   will-change: transform;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
 }
 
 .kv>video{
   position: absolute;
-  top:0;
-  left:0;
-  background: none;
-  height: 80vh;
-  mix-blend-mode: screen;
-  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
 }
 .txt_wrap{
   position: absolute;
