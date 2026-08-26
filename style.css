@@ -167,6 +167,14 @@ section button{
   background-color: #fff;
   color:#544f4f; font-size: 14px;
 }
+.memorial-flower {
+  width: 13px;
+  height: 13px;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: -2px;
+  margin-right: 3px;
+}
 
 /* tel popup */
 #dimmed {
