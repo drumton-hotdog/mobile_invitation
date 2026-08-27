@@ -289,14 +289,14 @@ section button{
     font-weight: normal;
 }
 .calander .dday {
-    display: inline-block;
-    background: #f79e9e;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    color: #fff;
-}
+  display: inline-block;
+  background: #f79e9e;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+} 
 .calander th:first-child,td:first-child{
   color: #b27085
 }
