@@ -44,7 +44,7 @@
     <div class="body_wrap">
         <div class="kv">
           <img class="kv-image" src="img/gallery/gallery_06.jpg" alt="">
-          <video src="https://theirmood.com/src/wdd/particle/cherry-blossom.mp4"
+          <video class="kv-video" src="https://theirmood.com/src/wdd/particle/cherry-blossom.mp4"
             loop
             autoplay
             muted
@@ -546,7 +546,6 @@
       currentX = 0; // 원위치로 초기화
     }
     banner.style.transform = `translateX(${currentX}px)`;
-    requestAnimationFrame(animate);
   }
 
   animate();
