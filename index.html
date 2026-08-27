@@ -539,7 +539,7 @@
     if (Math.abs(currentX) >= totalWidth) {
       currentX = 0; // 원위치로 초기화
     }
-    banner.style.transform = translateX(${currentX}px);
+    banner.style.transform = `translateX(${currentX}px)`;
     requestAnimationFrame(animate);
   }
 
