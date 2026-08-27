@@ -63,12 +63,13 @@ section.show {
   overflow: hidden;
 }
 .kv .img {
-   position: absolute;
+  position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   background: url(img/gallery/gallery_06.jpg) center/cover no-repeat;
   z-index: 1;
+  transform: scale(1) !important;
 }
 
 .kv > video {
@@ -81,6 +82,7 @@ section.show {
   mix-blend-mode: screen;
   opacity: 0.2;
   pointer-events: none;
+  transform: scale(1) !important;
 }
 .txt_wrap{
   position: absolute;
