@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -42,14 +40,15 @@
 
   <body>
     <div class="body_wrap">
-        <div class="kv">
-          <img class="kv-image" src="img/gallery/gallery_06.jpg" alt="">
-          <video class="kv-video" src="https://theirmood.com/src/wdd/particle/cherry-blossom.mp4"
-            loop
-            autoplay
-            muted
-            playsinline>
-          </video>
+      <div class="kv">
+        <div class="img"></div>
+         <video
+         src="https://theirmood.com/src/wdd/particle/cherry-blossom.mp4"
+          loop
+          autoplay
+          muted
+          playsinline>
+  </video>
         <div class="txt_wrap"> 
           <h1>Forever</h1><h1>Together</h1>
           <div class="date">
@@ -179,7 +178,7 @@
     
     <section id="img_section">
       <div class="img_txt"><p>Welcome to<br>our Wedding</p></div>
-      <div class="img"><img src="img/gallery/gallery_01.jpg" alt=""></div>
+      <div class="img"><img src="img/gallery/gallery_02.jpg" alt=""></div>
     </section>
 
     <section id="location">
@@ -203,7 +202,6 @@
               "mapHeight" : "200"
             }).render();
           </script>
-
 
       <div class="navi_wrap">
         <div class="navigation">
@@ -479,8 +477,6 @@
         </div>
       </section>
 
-
-
       <section id="Photo">
         <span>Photo</span>
         <h2>사진 업로드</h2>
@@ -493,10 +489,9 @@
       
       </section>
 
-
       
       <div class="footer_img">
-        <img src="img/gallery/gallery_02.jpg" alt="">
+        <img src="img/gallery/gallery_01.jpg" alt="">
       </div>
     
     <button id="kakaoShareBtn">청첩장 카카오톡으로 공유하기</button>
@@ -520,9 +515,6 @@
       observer.observe(section);
     });
 
-
-
-
   function copy(btn) {
   const input = btn.previousElementSibling; // 버튼 바로 앞 input 선택
   input.select();
@@ -545,7 +537,8 @@
     if (Math.abs(currentX) >= totalWidth) {
       currentX = 0; // 원위치로 초기화
     }
-    banner.style.transform = `translateX(${currentX}px)`;
+    banner.style.transform = translateX(${currentX}px);
+    requestAnimationFrame(animate);
   }
 
   animate();
@@ -637,7 +630,6 @@
 	   of last tab */
 	$('ul.tabs li').last().addClass("tab_last");
 
-
   // kakao share
 	document.getElementById("kakaoShareBtn").addEventListener("click", function () {
   
@@ -686,5 +678,3 @@
   setInterval(updateCountdown, 1000);
 </Script>
 </html>
-
-
