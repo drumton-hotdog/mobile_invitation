@@ -113,9 +113,10 @@ section.show {
   display: flex;
   width: 100%;
   margin-top: auto;
-  padding: 12px 18px 25px;
+  padding: 12px 20px 25px;
   justify-content: center;
-  gap: 150px;
+  align-items: center;
+  gap: clamp(40px, 15vw, 150px);
   margin-bottom: 20px;
 }
 .date P{
