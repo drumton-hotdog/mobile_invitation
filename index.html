@@ -20,10 +20,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Gothic&family=Noto+Serif+KR:wght@200..900&family=Qwitcher+Grypen:wght@400;700&display=swap" rel="stylesheet">
 
-    
-  <script src="https://www.gstatic.com/firebasejs/12.0.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/12.0.0/firebase-auth-compat.js"></script>
+    <script>
+const firebaseConfig = {
+  apiKey: "AIzaSyAdkWjxXUG5EZVBR_vUOI5TNECIypjdceg",
+  authDomain: "wedding-invitation-songsol.firebaseapp.com",
+  projectId: "wedding-invitation-songsol",
+  storageBucket: "wedding-invitation-songsol.firebasestorage.app",
+  messagingSenderId: "890065082327",
+  appId: "1:890065082327:web:5a599594e1f223a58edd92",
+  measurementId: "G-SNWVXBZMV7"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const db = firebase.firestore();
+</script>
   <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=3a594397177448c26c0db16d04969166"></script>
   <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.5.0/kakao.min.js"></script>
   <script>
