@@ -495,16 +495,16 @@ section button{
     left: 10%;
     width: 17px;
     height: 17px;
-    background-image: url(img/ico_nav01.png);
+    background-image: url(icon/navermap.png);
     background-size: 17px auto;
     margin-top: -8.5px;
 }
 .navigation>ul li:nth-child(2) a::before{
     left: 30%;
-    background-image: url(img/ico_nav02.png);
+    background-image: url(icon/tmap.jpg);
 }
 .navigation>ul li:last-child a::before{
-    background-image: url(img/ico_nav03.png);
+    background-image: url(icon/kakao_map.png);
 }
 
 #gallery{
