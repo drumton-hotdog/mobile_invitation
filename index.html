@@ -55,13 +55,9 @@ const db = firebase.firestore();
     <div class="body_wrap">
       <div class="kv">
         <div class="img"></div>
-         <video
-         src="https://theirmood.com/src/wdd/particle/cherry-blossom.mp4"
-          loop
-          autoplay
-          muted
-          playsinline>
-        </video>
+        <video class="kv-video" autoplay muted  loop  playsinline  preload="auto">
+         <source src="./img/gallery/video/cherry-blossom.mp4" type="video/mp4">
+      </video>
         <div class="txt_wrap"> 
           <h1>Forever</h1><h1>Together</h1>
           <div class="date">
