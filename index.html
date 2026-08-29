@@ -203,18 +203,21 @@ const db = firebase.firestore();
           <span>Tel. 02-538-3300</span>
         </div>
       <!-- <div id="map"></div> -->
-          <div id="daumRoughmapContainer1763964889649" class="root_daum_roughmap root_daum_roughmap_landing"></div>
-          <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+      <div id="daumRoughmapContainer1787978291722"
+        class="root_daum_roughmap root_daum_roughmap_landing">
+      </div>
 
-          <!-- 3. 실행 스크립트 -->
-          <script charset="UTF-8">
-            new daum.roughmap.Lander({
-              "timestamp" : "1763964889649",
-              "key" : "cqbvna626qu",
-              "mapWidth" : "400",
-              "mapHeight" : "200"
-            }).render();
-          </script>
+      <script charset="UTF-8" class="daum_roughmap_loader_script"
+        src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+
+      <script charset="UTF-8">
+        new daum.roughmap.Lander({
+         "timestamp" : "1787978291722",
+         "key" : "tse7icb77zp",
+         "mapWidth" : "640",
+          "mapHeight" : "360"
+        }).render();
+      </script>
 
       <div class="navi_wrap">
         <div class="navigation">
@@ -236,8 +239,8 @@ const db = firebase.firestore();
           <h4>버스</h4>
           <ul>
             <li><span style="color:#0d347f;">●</span>간선버스: 140, 146, 341, 360, 400, 402, 420, 440, 441, 452, 470, 541, 740, 741</li>
-            <li><span style="color:#3b9f37;">●</span>지선버스: 9404, 9408, M4403, M4434, M5438, M6427, M6439, M7412</li>
-            <li><span style="color:#6B4A3A;">●</span>행사 진행시: 강남역 1번 출구에서 셔틀버스 이용 (예식 한 시간 전부터 운행)</li>
+            <li><span style="color:#C9262D;">●</span>광역버스: 9404, 9408, M4403, M4434, M5438, M6427, M6439, M7412</li>
+            <li><span style="color:#6B4A3A;">●</span>행사 진행 시: 강남역 1번 출구에서 셔틀버스 이용 (예식 한 시간 전부터 운행)</li>
           </ul>
         </div>
       </div>
