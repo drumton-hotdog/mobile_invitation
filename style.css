@@ -879,20 +879,42 @@ svg{fill:#999;width: 100%;}
   font-family: "Noto Serif KR", serif;
   font-weight: bold;color:#333;
 }
-.account_wrap{
+.account_wrap {
   display: flex;
+  align-items: center;
   width: 268px;
-  justify-content: space-between;;
-  margin-top:-18px;
+  margin-top: -18px;
+  justify-content: flex-start;
 }
-.account_wrap input{
+
+.account_wrap input {
   width: 126px;
-  padding:0;
+  padding: 0;
   font-size: 14px;
+  flex-shrink: 0;
 }
-.account_wrap img.copy{
-  margin-left:-80px;
+
+.account_wrap .copy {
+  width: 25px;
+  height: 25px;
+  margin-left: 8px;
+  object-fit: contain;
+  cursor: pointer;
+  flex-shrink: 0;
 }
+
+.account_wrap a {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+}
+
+.account_wrap a img {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+}
+
 #account .tabs-stage a img{
   height: 25px;
 }
