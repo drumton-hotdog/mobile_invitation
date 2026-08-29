@@ -990,3 +990,13 @@ svg{fill:#999;width: 100%;}
   color:#544f4f; font-size: 14px;
   border:none;margin:50px auto;display: 
 }
+
+.root_daum_roughmap {
+  width: 100% !important;
+  max-width: 360px;
+  margin: 0 auto !important;
+}
+
+.root_daum_roughmap .wrap_map {
+  width: 100% !important;
+}
