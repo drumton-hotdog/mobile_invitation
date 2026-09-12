@@ -471,6 +471,7 @@ section button{
 }
 .navi_wrap li{font-size: 14px;color:#555}
 .navigation>ul{
+  font-family: "Noto Serif KR", serif;
   display: flex; 
   justify-content: space-between;
   padding:10px 0;
