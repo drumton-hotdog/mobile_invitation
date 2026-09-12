@@ -497,7 +497,6 @@ const db = firebase.firestore();
   </div>
 
     <script defer src="script.js"></script>
-</body>
 <Script>
    const sections = document.querySelectorAll("section");
 
@@ -638,76 +637,6 @@ if (galleryCloseBtn) {
 
 });
 
-function saveMsg() {
-  const name = document.getElementById('name').value.trim();
-  const pw = document.getElementById('pw').value.trim();
-  const msg = document.getElementById('msg').value.trim();
-
-  if (!name) {
-    alert('이름을 입력해주세요.');
-    return;
-  }
-
-  if (!pw) {
-    alert('비밀번호를 입력해주세요.');
-    return;
-  }
-
-  if (!msg) {
-    alert('메세지를 입력해주세요.');
-    return;
-  }
-
-  db.collection('guestbook').add({
-    name: name,
-    password: pw,
-    message: msg,
-    createdAt: firebase.firestore.FieldValue.serverTimestamp()
-  })
-  .then(() => {
-    alert('방명록이 등록되었습니다.');
-
-    document.getElementById('name').value = '';
-    document.getElementById('pw').value = '';
-    document.getElementById('msg').value = '';
-
-    loadMessages();
-  })
-  .catch((error) => {
-    console.error('방명록 저장 오류:', error);
-    alert('방명록 등록에 실패했습니다.');
-  });
-}
-
-function loadMessages() {
-  const list = document.getElementById('list');
-
-  db.collection('guestbook')
-    .orderBy('createdAt', 'desc')
-    .get()
-    .then((snapshot) => {
-
-      list.innerHTML = '';
-
-      snapshot.forEach((doc) => {
-        const data = doc.data();
-
-        list.innerHTML += `
-          <div class="card">
-            <div class="name">${data.name}</div>
-            <p class="msg">${data.message}</p>
-          </div>
-        `;
-      });
-
-    })
-    .catch((error) => {
-      console.error('방명록 불러오기 오류:', error);
-    });
-}
-
-loadMessages();
-
 // 카운트다운 목표 시간
   const targetDate = new Date("2026-10-24T12:20:00+09:00").getTime();
   function updateCountdown() {
@@ -745,4 +674,5 @@ loadMessages();
   // 1초마다 업데이트
   setInterval(updateCountdown, 1000);
 </Script>
+</body>
 </html>
