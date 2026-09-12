@@ -938,21 +938,7 @@ svg{fill:#999;width: 100%;}
 #contact>p{
   margin: 20px 0;
 }
-#contact .profile_wrap{
-  display: flex;
-  width: 280px;
-  justify-content: space-between;
-  margin:40px auto;
-  align-items: center;
-}
-#contact .profile_wrap .img{
-  width: 120px;height: 120px;;
-  border-radius:  100px;
-  background-color: #d9d9d9;
-  overflow: hidden; 
-}
-#contact .profile_wrap>img{width: 15px;height: 15px;}
-#contact .profile_wrap .img>img{width: 100%;}
+
 #contact .contact_wrap{
   width: 280px;
   display: flex;
