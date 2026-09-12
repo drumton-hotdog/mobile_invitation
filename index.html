@@ -253,6 +253,22 @@ const db = firebase.firestore();
           <h2>웨딩 갤러리</h2>
         <div class="wrapper">
           <div class="photobanner" id="banner">
+            <!-- 1세트 -->
+            <img class="first" src="img/gallery/gallery_01.jpg" alt="img" />
+            <img class="first" src="img/gallery/gallery_02.jpg" alt="img" />
+            <img class="first" src="img/gallery/gallery_03.jpg" alt="img" />
+            <img class="first" src="img/gallery/gallery_04.jpg" alt="img" />
+            <img class="first" src="img/gallery/gallery_05.jpg" alt="img" />
+            <img class="first" src="img/gallery/gallery_06.jpg" alt="img" />
+            <img class="first" src="img/gallery/gallery_07.jpg" alt="img" />
+            <img class="first" src="img/gallery/gallery_08.jpg" alt="img" />
+            <img class="first" src="img/gallery/gallery_09.jpg" alt="img" />
+            <img class="first" src="img/gallery/gallery_10.jpg" alt="img" />
+            <img class="first" src="img/gallery/gallery_11.jpg" alt="img" />
+            <img class="first" src="img/gallery/gallery_12.jpg" alt="img" />
+            <img class="first" src="img/gallery/gallery_13.jpg" alt="img" />
+            <img class="first" src="img/gallery/gallery_14.jpg" alt="img" />
+            <!-- 2세트 -->
             <img class="first" src="img/gallery/gallery_01.jpg" alt="img" />
             <img class="first" src="img/gallery/gallery_02.jpg" alt="img" />
             <img class="first" src="img/gallery/gallery_03.jpg" alt="img" />
@@ -292,10 +308,6 @@ const db = firebase.firestore();
             <div class="swiper-slide"><img src="img/gallery/gallery_12.jpg" alt="wedding01"></div>
             <div class="swiper-slide"><img src="img/gallery/gallery_13.jpg" alt="wedding01"></div>
             <div class="swiper-slide"><img src="img/gallery/gallery_14.jpg" alt="wedding01"></div>
-            <div class="swiper-slide"><img src="img/gallery/gallery_15.jpg" alt="wedding01"></div>
-            <div class="swiper-slide"><img src="img/gallery/gallery_16.jpg" alt="wedding01"></div>
-            <div class="swiper-slide"><img src="img/gallery/gallery_17.jpg" alt="wedding01"></div>
-            <div class="swiper-slide"><img src="img/gallery/gallery_18.jpg" alt="wedding01"></div>
           </div>
           <div class="swiper-pagination"></div>
         </div>
@@ -524,25 +536,25 @@ const db = firebase.firestore();
   navigator.clipboard.writeText(input.value);
   alert("복사되었습니다.");
 }
-    
- 
+  // 사진 더보기 팝업
+const moreBtn = document.getElementById('more');
+const galleryPopup = document.getElementById('gallery_popup');
+const galleryCloseBtn = document.querySelector('#gallery_popup .close');
 
-  // gallery automove
-  const banner = document.getElementById('banner');
-  const totalWidth = banner.scrollWidth / 2; // 원본 이미지 세트 너비
-  let currentX = 0;
-  const speed = 0.5; // 움직임 속도 (수치 조절)
+if (moreBtn) {
+  moreBtn.addEventListener('click', function () {
+    galleryPopup.style.display = 'grid';
+    document.body.style.overflow = 'hidden';
+  });
+}
 
-  function animate() {
-    currentX -= speed;
-    if (Math.abs(currentX) >= totalWidth) {
-      currentX = 0; // 원위치로 초기화
-    }
-    banner.style.transform = `translateX(${currentX}px)`;
-    requestAnimationFrame(animate);
-  }
+if (galleryCloseBtn) {
+  galleryCloseBtn.addEventListener('click', function () {
+    galleryPopup.style.display = 'none';
+    document.body.style.overflow = '';
+  });
+}  
 
-  animate();
 
   // Tel popup (dimmed overlay)
   const callBtn = document.getElementById('call');

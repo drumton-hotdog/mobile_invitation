@@ -469,9 +469,8 @@ section button{
   font-size: 14px;
   padding-bottom:20px;
 }
-.navi_wrap li{font-size: 14px;color:#555}
+.navi_wrap li{font-size: 14px;color:#555;font-family: "Noto Serif KR", serif}
 .navigation>ul{
-  font-family: "Noto Serif KR", serif;
   display: flex; 
   justify-content: space-between;
   padding:10px 0;
@@ -624,7 +623,20 @@ svg{fill:#999;width: 100%;}
 /* .btn-prev { left: 0; }
 .btn-next { right:0 } */
 
+.photobanner {
+  display: flex;
+  width: max-content;
+  animation: galleryMove 30s linear infinite;
+}
 
+@keyframes galleryMove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
 
 
 
