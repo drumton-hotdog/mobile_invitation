@@ -1095,12 +1095,40 @@ svg{fill:#999;width: 100%;}
 }
 
 
-#kakaoShareBtn{
-  background-color: #f0f0f0;
-  color:#544f4f; font-size: 14px;
-  border:none;
-  margin:50px auto;
-  display: 
+#kakaoShareBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  width: 180px;
+  height: 45px;
+  margin: 40px auto;
+
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+
+  background-color: #FEE500;
+  color: #544f4f;
+
+  font-family: "Noto Serif KR", serif;
+  font-size: 13px;
+
+  cursor: pointer;
+}
+
+#kakaoShareBtn img {
+  display: block;
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+#kakaoShareBtn span {
+  color: #544f4f;
+  font-family: "Noto Serif KR", serif;
+  font-size: 13px;
 }
 
 .root_daum_roughmap {
