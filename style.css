@@ -583,9 +583,18 @@ section button{
   border-radius: 8px;
 }
 
-.swiper-slide img {
-  width: 100%;
+.swiper-slide {
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-slide img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
   object-fit: contain;
 }
 
@@ -626,7 +635,7 @@ svg{fill:#999;width: 100%;}
 .photobanner {
   display: flex;
   width: max-content;
-  animation: galleryMove 30s linear infinite;
+  animation: galleryMove 50s linear infinite;
 }
 
 @keyframes galleryMove {
