@@ -457,6 +457,7 @@ section button{
 }
 
 .navi_wrap p{
+  font-family: "Noto Serif KR", serif;
   color:#555;
 }
 .navi_wrap>div{
@@ -464,6 +465,7 @@ section button{
   border-bottom: 1px solid #e6e6e6;
 }
 .navi_wrap h4{
+  font-family: "Noto Serif KR", serif;
   font-size: 14px;
   padding-bottom:20px;
 }
@@ -483,6 +485,7 @@ section button{
   position: relative;
 }
 .navigation>ul a{
+  font-family: "Noto Serif KR", serif;
   font-weight: bold;
   color:#333;
   font-size: 10px;
