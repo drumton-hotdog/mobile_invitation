@@ -457,7 +457,6 @@ section button{
 }
 
 .navi_wrap p{
-  font-family: "Nanum Gothic", sans-serif;
   color:#555;
 }
 .navi_wrap>div{
@@ -482,7 +481,6 @@ section button{
   position: relative;
 }
 .navigation>ul a{
-  font-family: "Nanum Gothic", sans-serif;
   font-weight: bold;
   color:#333;
   font-size: 10px;;padding-left: 22px;
@@ -728,7 +726,6 @@ svg{fill:#999;width: 100%;}
   display: flex;
   justify-content: space-around;
   width: 360px;margin:20px auto;
-  font-family: "Nanum Gothic", sans-serif;
 }
 #info .tabs .active{
   font-weight: bold;
