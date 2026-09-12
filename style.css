@@ -658,85 +658,177 @@ svg{fill:#999;width: 100%;}
 
 
 
-#chat{
+/* =========================
+   방명록
+========================= */
+
+#chat {
   text-align: center;
-  margin:60px 0;
+  margin: 80px 0;
+  padding: 0 20px;
 }
-#chat span{
+
+#chat > span {
   font-family: "Noto Serif KR", serif;
 }
-#chat p{
-  margin: 40px 0;
-  font-size: 14px;
-}
-#list{margin:30px 0;}
-.card {
-  text-align: left;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  padding: 3px 16px 20px 16px;
-  margin: 12px auto;
-  width: 80%;
-  max-width: 600px;
+
+#chat > h2 {
+  font-size: 20px;
+  padding-bottom: 10px;
 }
 
-.card .title_wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-  height: 50px;
+/* 설명 문구 */
+#chat > p {
+  margin: 35px 0 45px;
+  font-size: 14px;
+  line-height: 2;
 }
-.card .name {
-  font-weight: bold;
+
+/* 댓글 남기기 */
+#chat h2.chat_wrap {
+  font-size: 15px;
+  color: #544f4f;
+  margin: 0 0 18px;
+}
+
+/* 이름 입력 영역 */
+#chat .name_wrap {
+  display: block;
+  width: 100%;
+  margin: 0 auto 10px;
+}
+
+/* 이름 입력 */
+#chat #name {
+  display: block;
+  width: 100%;
+  height: 44px;
+  margin: 0;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  font-family: "Noto Serif KR", serif;
   font-size: 13px;
+  outline: none;
+}
+
+/* 이름 입력 포커스 */
+#chat #name:focus {
+  border-color: #ccc;
+}
+
+/* 메시지 입력 */
+#chat #msg {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: 100px;
+  margin: 0 0 12px;
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  font-family: "Gaegu", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  resize: none;
+  outline: none;
+}
+
+/* 메시지 입력 포커스 */
+#chat #msg:focus {
+  border-color: #ccc;
+}
+
+/* 등록 버튼 */
+#chat #guestbookBtn {
+  display: block;
+  width: 100%;
+  height: 44px;
+  margin: 0 auto;
+  padding: 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  color: #544f4f;
+  font-family: "Noto Serif KR", serif;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* 버튼 비활성화 */
+#chat #guestbookBtn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+
+/* =========================
+   방명록 목록
+========================= */
+
+#chat #list {
+  width: 100%;
+  margin: 35px auto 0;
+}
+
+/* 방명록 카드 */
+#chat .card {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  margin: 12px auto;
+  padding: 16px 18px 18px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  text-align: left;
+}
+
+/* 이름 */
+#chat .card .name {
+  margin: 0 60px 10px 0;
+  font-family: "Noto Serif KR", serif;
+  font-size: 13px;
+  font-weight: 600;
   color: #333;
 }
-.card .right_wrap {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.card .date {
-  font-size: 12px;
-  color: #ddd;
+
+/* 메시지 */
+#chat .card .msg {
+  margin: 0;
+  padding: 0;
+  font-family: "Gaegu", sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  color: #555;
+  word-break: break-word;
+  white-space: pre-wrap;
 }
 
-.card .del {
-  background: none;
-  border: none;
-  color: #ddd;
-  padding: 2px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.2s;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* 삭제 버튼 */
+#chat .card .delete-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: auto;
+  min-width: 40px;
+  height: 24px;
+  margin: 0;
+  padding: 2px 7px;
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+  background: #fff;
+  color: #aaa;
+  font-family: "Noto Serif KR", serif;
+  font-size: 10px;
+  line-height: 1;
 }
-.card .del:hover {
-  background: #f2f2f2;
-  color: #000;
-}
-.card .msg {
-  font-family: "Gaegu", sans-serif;
-  word-wrap: break-word;
-  font-size: 16px;
-  color: #555;margin-top:10px;
-  white-space: pre-wrap; /* 줄바꿈 유지 */
-}
-#chat h2.chat_wrap{
-  font-size: 14px;
-  color:#544f4f;
-  margin-top:40px;
-}
-#chat .name_wrap{
-  display: flex;
-  justify-content: space-between;
-  width: 90%;
-  margin:0 auto;
+
+/* 삭제 버튼 눌렀을 때 */
+#chat .card .delete-btn:active {
+  background: #f5f5f5;
 }
 
 
