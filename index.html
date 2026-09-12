@@ -37,7 +37,7 @@
 
   const db = firebase.firestore();
 </script>
-  </script>
+
   <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=3a594397177448c26c0db16d04969166"></script>
   <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.5.0/kakao.min.js"></script>
   <script>
@@ -630,15 +630,32 @@ if (galleryCloseBtn) {
 	   of last tab */
 	$('ul.tabs li').last().addClass("tab_last");
 
-  // kakao share
-	document.getElementById("kakaoShareBtn").addEventListener("click", function () {
-  
-  Kakao.Share.sendCustom({
-    templateId: 126625,  
-    templateArgs: {}      // 템플릿 변수 있으면 여기 넣기 (없으면 빈 객체 유지)
+document.getElementById("kakaoShareBtn").addEventListener("click", function () {
+
+  Kakao.Share.sendDefault({
+    objectType: "feed",
+    content: {
+      title: "최근송 ♥ 이다솔의 결혼에 초대합니다",
+      description: "2026년 10월 24일 토요일 오후 12시 20분\n세인트 메리엘 강남 2층 세인트홀",
+      imageUrl: "https://drumton-hotdog.github.io/mobile_invitation/img/gallery/gallery_07.jpg",
+      link: {
+        mobileWebUrl: "https://drumton-hotdog.github.io/mobile_invitation/",
+        webUrl: "https://drumton-hotdog.github.io/mobile_invitation/"
+      }
+    },
+    buttons: [
+      {
+        title: "청첩장 보기",
+        link: {
+          mobileWebUrl: "https://drumton-hotdog.github.io/mobile_invitation/",
+          webUrl: "https://drumton-hotdog.github.io/mobile_invitation/"
+        }
+      }
+    ]
   });
 
 });
+
 
 // 카운트다운 목표 시간
   const targetDate = new Date("2026-10-24T12:20:00+09:00").getTime();
