@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>모바일 청접장</title>
     
-    <script src="https://www.gstatic.com/firebasejs/12.0.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore-compat.js"></script>
     <meta property="og:url" content="https://drumton-hotdog.github.io/mobile_invitation/">
     <meta property="og:title" content="최근송 ♥ 이다솔의 결혼에 초대합니다">
     <meta property="og:type" content="website">
@@ -34,6 +35,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
+    </script>
 </script>
   <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=3a594397177448c26c0db16d04969166"></script>
   <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.5.0/kakao.min.js"></script>
@@ -674,5 +676,103 @@ if (galleryCloseBtn) {
   // 1초마다 업데이트
   setInterval(updateCountdown, 1000);
 </Script>
+<script>
+function saveMsg() {
+
+  const name = document.getElementById("name").value.trim();
+  const pw = document.getElementById("pw").value.trim();
+  const msg = document.getElementById("msg").value.trim();
+
+  if (!name) {
+    alert("이름을 입력해주세요.");
+    return;
+  }
+
+  if (!pw) {
+    alert("비밀번호를 입력해주세요.");
+    return;
+  }
+
+  if (!msg) {
+    alert("메세지를 입력해주세요.");
+    return;
+  }
+
+  const btn = document.getElementById("guestbookBtn");
+
+  btn.disabled = true;
+  btn.textContent = "등록 중...";
+
+  db.collection("guestbook")
+    .add({
+      name: name,
+      password: pw,
+      message: msg,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    })
+    .then(function () {
+
+      alert("방명록이 등록되었습니다.");
+
+      document.getElementById("name").value = "";
+      document.getElementById("pw").value = "";
+      document.getElementById("msg").value = "";
+
+      loadMessages();
+
+    })
+    .catch(function (error) {
+
+      console.error("방명록 등록 오류:", error);
+
+      alert(
+        "방명록 등록에 실패했습니다.\n\n" +
+        error.message
+      );
+
+    })
+    .finally(function () {
+
+      btn.disabled = false;
+      btn.textContent = "내 방명록 남기기";
+
+    });
+}
+
+
+function loadMessages() {
+
+  const list = document.getElementById("list");
+
+  db.collection("guestbook")
+    .orderBy("createdAt", "desc")
+    .get()
+    .then(function (snapshot) {
+
+      list.innerHTML = "";
+
+      snapshot.forEach(function (doc) {
+
+        const data = doc.data();
+
+        list.innerHTML += `
+          <div class="card">
+            <div class="name">${data.name}</div>
+            <p class="msg">${data.message}</p>
+          </div>
+        `;
+
+      });
+
+    })
+    .catch(function (error) {
+
+      console.error("방명록 불러오기 오류:", error);
+
+    });
+}
+
+loadMessages();
+</script>
 </body>
 </html>
