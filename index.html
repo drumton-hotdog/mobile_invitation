@@ -9,6 +9,7 @@
     
     <script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore-compat.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-auth-compat.js"></script>
     <meta property="og:url" content="https://drumton-hotdog.github.io/mobile_invitation/">
     <meta property="og:title" content="최근송 ♥ 이다솔의 결혼에 초대합니다">
     <meta property="og:type" content="website">
@@ -326,7 +327,6 @@
           <h2 class="chat_wrap">댓글 남기기</h2>
             <div class="name_wrap">
               <input id="name" placeholder="이름" />
-              <input id="pw" type="password" placeholder="비밀번호"/>
             </div>
             <textarea id="msg" placeholder="해주고 싶은 메세지를 이곳에 적어주세요"></textarea>
             <button onclick="saveMsg()" id="guestbookBtn">내 방명록 남기기</button>
@@ -676,20 +676,14 @@ if (galleryCloseBtn) {
   // 1초마다 업데이트
   setInterval(updateCountdown, 1000);
 </Script>
+
 <script>
 function saveMsg() {
-
   const name = document.getElementById("name").value.trim();
-  const pw = document.getElementById("pw").value.trim();
   const msg = document.getElementById("msg").value.trim();
 
   if (!name) {
     alert("이름을 입력해주세요.");
-    return;
-  }
-
-  if (!pw) {
-    alert("비밀번호를 입력해주세요.");
     return;
   }
 
@@ -703,46 +697,56 @@ function saveMsg() {
   btn.disabled = true;
   btn.textContent = "등록 중...";
 
+  const user = firebase.auth().currentUser;
+
+  if (!user) {
+    alert("잠시 후 다시 시도해주세요.");
+    btn.disabled = false;
+    btn.textContent = "내 방명록 남기기";
+    return;
+  }
+
   db.collection("guestbook")
     .add({
       name: name,
-      password: pw,
       message: msg,
+      ownerUid: user.uid,
       createdAt: firebase.firestore.FieldValue.serverTimestamp()
     })
     .then(function () {
-
       alert("방명록이 등록되었습니다.");
 
       document.getElementById("name").value = "";
-      document.getElementById("pw").value = "";
       document.getElementById("msg").value = "";
 
       loadMessages();
-
     })
     .catch(function (error) {
-
       console.error("방명록 등록 오류:", error);
-
-      alert(
-        "방명록 등록에 실패했습니다.\n\n" +
-        error.message
-      );
-
+      alert("방명록 등록에 실패했습니다.\n\n" + error.message);
     })
     .finally(function () {
-
       btn.disabled = false;
       btn.textContent = "내 방명록 남기기";
-
     });
 }
 
 
-function loadMessages() {
+// 🔐 익명 로그인
+firebase.auth().signInAnonymously()
+  .then(function () {
+    console.log("익명 로그인 완료");
+    loadMessages();
+  })
+  .catch(function (error) {
+    console.error("익명 로그인 오류:", error);
+  });
 
+
+// 📖 방명록 불러오기
+function loadMessages() {
   const list = document.getElementById("list");
+  const currentUser = firebase.auth().currentUser;
 
   db.collection("guestbook")
     .orderBy("createdAt", "desc")
@@ -755,10 +759,23 @@ function loadMessages() {
 
         const data = doc.data();
 
+        const isMine =
+          currentUser && data.ownerUid === currentUser.uid;
+
         list.innerHTML += `
           <div class="card">
-            <div class="name">${data.name}</div>
-            <p class="msg">${data.message}</p>
+            <div class="name">${escapeHtml(data.name)}</div>
+            <p class="msg">${escapeHtml(data.message)}</p>
+
+            ${
+              isMine
+                ? `<button type="button"
+                     class="delete-btn"
+                     onclick="deleteMsg('${doc.id}')">
+                     삭제
+                   </button>`
+                : ""
+            }
           </div>
         `;
 
@@ -772,7 +789,44 @@ function loadMessages() {
     });
 }
 
-loadMessages();
+
+// 🗑️ 방명록 삭제
+function deleteMsg(docId) {
+
+  if (!confirm("이 방명록을 삭제할까요?")) {
+    return;
+  }
+
+  db.collection("guestbook")
+    .doc(docId)
+    .delete()
+    .then(function () {
+
+      alert("방명록이 삭제되었습니다.");
+      loadMessages();
+
+    })
+    .catch(function (error) {
+
+      console.error("방명록 삭제 오류:", error);
+      alert("삭제할 수 없습니다.\n\n" + error.message);
+
+    });
+}
+
+
+// 🛡️ HTML 코드 입력 방지
+function escapeHtml(text) {
+
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+
+}
 </script>
+
 </body>
 </html>
