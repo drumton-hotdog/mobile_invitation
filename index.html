@@ -501,11 +501,6 @@ const db = firebase.firestore();
       
       
       </section>
-
-      
-      <div class="footer_img">
-        <img src="img/gallery/gallery_02.jpg" alt="">
-      </div>
     
     <button id="kakaoShareBtn">청첩장 카카오톡으로 공유하기</button>
   </div>
@@ -543,7 +538,7 @@ const galleryCloseBtn = document.querySelector('#gallery_popup .close');
 
 if (moreBtn) {
   moreBtn.addEventListener('click', function () {
-    galleryPopup.style.display = 'grid';
+    galleryPopup.style.display = 'flex';
     document.body.style.overflow = 'hidden';
   });
 }
